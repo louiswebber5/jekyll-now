@@ -1,5 +1,5 @@
 ---
-title: Copy of Github script
+title: Lesson 2
 layout: post
 author: louis.webber
 permalink: /copy-of-github-script/
