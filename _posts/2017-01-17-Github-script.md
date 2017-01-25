@@ -9,9 +9,9 @@ published: true
 <table>
   <tr>
     <td></td>
-    <td> Carrying on with the FUZE box</td>
+    <td> Learning the basics</td>
     <td></td>
-    <td> 25/01/17</td>
+    <td>    17/01/17</td>
   </tr>
 </table>
 
@@ -19,15 +19,15 @@ published: true
 <table>
   <tr>
     <td></td>
-    <td>Had started using colours last lesson</td>
+    <td>Hadn't used the FUZE boxes before, was our first time using them</td>
   </tr>
   <tr>
     <td></td>
-    <td>My target was to get quite far along in the booklet, and to start some difficult coding</td>
+    <td>My target was to get quite far along in the booklet we were given, and to start learning the basics of the FUZE box</td>
   </tr>
   <tr>
     <td></td>
-    <td>I did reach my target, because me, Ollie and Tommy got quite far, and we even started doing some quite challenging coding.</td>
+    <td>I did reach my target, because me, Ollie and Tommy got quite far, and we finally got the hang of some basic coding.</td>
   </tr>
 </table>
 
