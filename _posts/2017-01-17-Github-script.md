@@ -9,9 +9,9 @@ published: true
 <table>
   <tr>
     <td></td>
-    <td> Learning the basics</td>
+    <td> Carrying on with the FUZE box</td>
     <td></td>
-    <td>  17/01/17</td>
+    <td> 25/01/17</td>
   </tr>
 </table>
 
@@ -19,15 +19,15 @@ published: true
 <table>
   <tr>
     <td></td>
-    <td>We had to set up the monitors, and learn some basic programming </td>
+    <td>Had started using colours last lesson</td>
   </tr>
   <tr>
     <td></td>
-    <td>My target was to make a start on programming </td>
+    <td>My target was to get quite far along in the booklet, and to start some difficult coding</td>
   </tr>
   <tr>
     <td></td>
-    <td> I did reach my target because, me and my partner got further than any of the other groups, and we really got to know how the monitor and programming worked, which would give us a boost in later lessons.</td>
+    <td>I did reach my target, because me, Ollie and Tommy got quite far, and we even started doing some quite challenging coding.</td>
   </tr>
 </table>
 
@@ -40,20 +40,19 @@ published: true
     <td></td>
   </tr>
   <tr>
-    <td>We were looking through a guide book to start off our programming career, but we had to use our own initiative even though the instructions in the book were detailed and helpful. I found the most effective strategy was if I didn't understand something, to just try it, and see where it got me. Another quite effective strategy was asking my partner on their view, and whether they thought something was sensible or not, and using both those strategies, I managed to get quite far through the work, therefore widening my knowledge of programming.</td>
+    <td>I think the lesson went quite well, however I could've read the instructions through fully before I jumped to conclusions. I think I cooperated and worked well with my group though, and we got through quite a lot. We did the things on the booklet, however we had a bit of trouble saving our work.</td>
   </tr>
   <tr>
     <td></td>
   </tr>
   <tr>
-    <td>The things that limited my learning was that some of the instructions in the guide book didn't have an image to go with them, so I had to guess whether I was doing the right thing or not. The habits which I need to work on are, working in a team and cooperating well with the other person, and I need to give things a proper try before I give up, because we wouldn't be told to do them if they weren't possible.
-</td>
+    <td>As I said before, I think my lack of reading the booklet probably limited my learning, otherwise there weren't many things that limited my learning. Finally, me, Ollie and Tommy managed to save our work, and we were quite proud of ourselves. The way we did it was that we put our pen drives in, then we went on the folder called 'pi', and then we dragged our saved work into our pen drive files.</td>
   </tr>
   <tr>
     <td></td>
   </tr>
   <tr>
-    <td>Next time, I will change my strategies in trying to work things out, as a result of not coming to any answers by trying a couple of times and then giving up. I will improve my learning by reading through instructions carefully, and if I don't understand them, I should break them down, and look at them properly, or ask my partner for some advice on what I am doing wrong.</td>
+    <td>For next time, I will read the booklet more, and maybe save my work more, just in case our work gets lost, and then I won't have to start again. All in all though, I enjoyed the lesson and I learnt quite a lot. I think the other two in my group were very helpful, and with the use of teamwork, we managed to tackle our way through a lot of the work together.</td>
   </tr>
 </table>
 
