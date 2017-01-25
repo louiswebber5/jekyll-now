@@ -2,7 +2,7 @@
 title: Lesson 2
 layout: post
 author: louis.webber
-permalink: /copy-of-github-script/
+permalink: /lesson-2/
 source-id: 1R7a3Fm6S-0F9Y8UYHK7hKMXEss4pW0a9YsweNwla44k
 published: true
 ---
