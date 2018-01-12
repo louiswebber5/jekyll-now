@@ -1,315 +1,269 @@
----
----
-
+/* -------------------------------------------------------------
+ *  Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library
+ *  By: Matthieu Aussaguel, http://www.mynameismatthieu.com, @matthieu_tweets
+ *
+ *  List of CSS3 Sass Mixins File to be @imported and @included as you need
+ *
+ *  The purpose of this library is to facilitate the use of CSS3 on different browsers avoiding HARD TO READ and NEVER
+ *  ENDING css files
+ *
+ *  note: All CSS3 Properties are being supported by Safari 5
+ *  more info: http://www.findmebyip.com/litmus/#css3-properties
+ *
+ *-------------------------------------------------------------
+////
+/// @author Matthieu Aussaguel
+/// @group sass-css3-mixins
+////
+/// Adds a browser prefix to the property
+/// @param {*} $property Property
+/// @param {*} $value Value
+=css3-prefix($property, $value)
+  -webkit-#{$property}: #{$value}
+  -khtml-#{$property}: #{$value}
+  -moz-#{$property}: #{$value}
+  -ms-#{$property}: #{$value}
+  -o-#{$property}: #{$value}
+  #{$property}: #{$value}
+/// Background Gradient
+/// @param {Color} $startColor [#3C3C3C] - Start Color
+/// @param {Color} $endColor [#999999] - End Color
+=background-gradient($startColor: #3C3C3C, $endColor: #999999)
+  background-color: $startColor
+  background-image: -webkit-gradient(linear, left top, left bottom, from($startColor), to($endColor))
+  background-image: -webkit-linear-gradient(top, $startColor, $endColor)
+  background-image: -moz-linear-gradient(top, $startColor, $endColor)
+  background-image: -ms-linear-gradient(top, $startColor, $endColor)
+  background-image: -o-linear-gradient(top, $startColor, $endColor)
+  background-image: linear-gradient(top, $startColor, $endColor)
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$startColor}', endColorStr='#{$endColor}')
+/// Background Horizontal
+/// @param {Color} $startColor [#3C3C3C] - Start Color
+/// @param {Color} $endColor [#999999] - End Color
+=background-horizontal($startColor: #3C3C3C, $endColor: #999999)
+  background-color: $startColor
+  background-image: -webkit-gradient(linear, left top, right top, from($startColor), to($endColor))
+  background-image: -webkit-linear-gradient(left, $startColor, $endColor)
+  background-image: -moz-linear-gradient(left, $startColor, $endColor)
+  background-image: -ms-linear-gradient(left, $startColor, $endColor)
+  background-image: -o-linear-gradient(left, $startColor, $endColor)
+  background-image: linear-gradient(left, $startColor, $endColor)
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$startColor}', endColorStr='#{$endColor}', gradientType='1')
+/// Background Radial
+/// @param {Color} $startColor [#3C3C3C] - Start Color
+/// @param {Percentage} $startPos [0%] - Start position
+/// @param {Color} $endColor [#999999] - End Color
+/// @param {Percentage} $endPos [100%] - End position
+=background-radial($startColor: #FFFFFF, $startPos: 0%, $endColor: #000000, $endPos: 100%)
+  background: -moz-radial-gradient(center, ellipse cover, $startColor $startPos, $endColor $endPos)
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop($startPos, $startColor), color-stop($endPos, $endColor))
+  background: -webkit-radial-gradient(center, ellipse cover, $startColor $startPos, $endColor $endPos)
+  background: -o-radial-gradient(center, ellipse cover, $startColor $startPos, $endColor $endPos)
+  background: -ms-radial-gradient(center, ellipse cover, $startColor $startPos, $endColor $endPos)
+  background: radial-gradient(ellipse at center, $startColor $startPos, $endColor $endPos)
+/// Background Size
+/// @param {Size} $width [100%] - Width
+/// @param {Size} $width [$width] - Height
+/// @require {mixin} css3-prefix
+=background-size($width: 100%, $height: $width)
+  @if type-of($width) == "number" and $height != null
+    +css3-prefix("background-size", $width $height)
+  @else
+    +css3-prefix("background-size", $width)
+/// Background Color Opacity
+/// @param {Color} $color [100%] - Color
+/// @param {Double} $opacity [0.85] - Opacity
+=background-opacity($color: #000, $opacity: 0.85)
+  background: $color
+  background: rgba($color, $opacity)
+/// Border Radius
+/// @param {Size} $radius [5px] - Radius
+/// @require {mixin} css3-prefix
+=border-radius($radius: 5px)
+  +css3-prefix("border-radius", $radius)
+/// Border Radius Separate
+/// @param {Size} $topLeftRadius [5px] - Top Left
+/// @param {Size} $topRightRadius [5px] - Top Right
+/// @param {Size} $bottomLeftRadius [5px] - Bottom Left
+/// @param {Size} $bottomRightRadius [5px] - Bottom Right
+=border-radius-separate($topLeftRadius: 5px, $topRightRadius: 5px, $bottomLeftRadius: 5px, $bottomRightRadius: 5px)
+  -webkit-border-top-left-radius: $topLeftRadius
+  -webkit-border-top-right-radius: $topRightRadius
+  -webkit-border-bottom-right-radius: $bottomRightRadius
+  -webkit-border-bottom-left-radius: $bottomLeftRadius
+  -moz-border-radius-topleft: $topLeftRadius
+  -moz-border-radius-topright: $topRightRadius
+  -moz-border-radius-bottomright: $bottomRightRadius
+  -moz-border-radius-bottomleft: $bottomLeftRadius
+  border-top-left-radius: $topLeftRadius
+  border-top-right-radius: $topRightRadius
+  border-bottom-right-radius: $bottomRightRadius
+  border-bottom-left-radius: $bottomLeftRadius
+/// Box
+/// @param {*} $orient [horizontal] - Orientation
+/// @param {*} $pack [center] - Pack
+/// @param {*} $align [center] - Align
+/// @require {mixin} css3-prefix
+=box($orient: horizontal, $pack: center, $align: center)
+  display: -webkit-box
+  display: -moz-box
+  display: box
+  +css3-prefix("box-orient", $orient)
+  +css3-prefix("box-pack", $pack)
+  +css3-prefix("box-align", $align)
+/// Box RGBA
+/// @param {Integer} $r [60] - Red
+/// @param {Integer} $g [3] - Green
+/// @param {Integer} $b [12] - Blue
+/// @param {Double} $opacity [0.23] - Opacity
+/// @param {Color} $color [#3C3C3C] - Color
+=box-rgba($r: 60, $g: 3, $b: 12, $opacity: 0.23, $color: #3C3C3C)
+  background-color: transparent
+  background-color: rgba($r, $g, $b, $opacity)
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$color}',endColorstr='#{$color}')
+  zoom: 1
+/// Box Shadow
+/// @param {Size} $x [2px] - X
+/// @param {Size} $y [2px] - Y
+/// @param {Size} $blur [5px] - Blur
+/// @param {Color} $color [rgba(0,0,0,.4)] - Color
+/// @param {Boolean} $inset - Inset
+=box-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0, 0, 0, 0.4), $inset: "")
+  @if $inset != ""
+    +css3-prefix("box-shadow", $inset $x $y $blur $color)
+  @else
+    +css3-prefix("box-shadow", $x $y $blur $color)
+/// Box Sizing
+/// @param {*} $type [border-box] - Type
+/// @require {mixin} css3-prefix
+=box-sizing($type: border-box)
+  +css3-prefix("box-sizing", $type)
+/// Columns
+/// @param {Integer} $count [3] - Count
+/// @param {Integer} $gap [10] - Gap
+/// @require {mixin} css3-prefix
+=columns($count: 3, $gap: 10)
+  +css3-prefix("column-count", $count)
+  +css3-prefix("column-gap", $gap)
+/// Double Borders
+/// @param {Color} $colorOne [#3C3C3C] - Color One
+/// @param {Color} $colorTwo [#999999] - Color Two
+/// @param {Size} $radius [0] - Radius
+/// @require {mixin} css3-prefix
+/// @require {mixin} border-radius
+=double-borders($colorOne: #3C3C3C, $colorTwo: #999999, $radius: 0)
+  border: 1px solid $colorOne
+  +css3-prefix("box-shadow", 0 0 0 1px $colorTwo)
+  +border-radius($radius)
+/// Flex
+/// @param {Integer} $value [1] - Value
+/// @require {mixin} css3-prefix
+=flex($value: 1)
+  +css3-prefix("box-flex", $value)
+/// Flip
+/// @param {Double} $scaleX [-1] - ScaleX
+/// @require {mixin} css3-prefix
+=flip($scaleX: -1)
+  +css3-prefix("transform", scaleX($scaleX))
+  filter: FlipH
+  -ms-filter: "FlipH"
+/// Font Face
+/// @param {Font} $fontFamily [myFont] - Font Family
+/// @param {String} $eotFileSrc ['myFont.eot'] - Eot File Source
+/// @param {String} $woffFileSrc ['myFont.woff'] - Woff File Source
+/// @param {String} $ttfFileSrc ['myFont.ttf'] - Ttf File Source
+/// @param {String} $svgFileSrc ['myFont.svg'] - Svg File Source
+=font-face($fontFamily: myFont, $eotFileSrc: "myFont.eot", $woffFileSrc: "myFont.woff", $ttfFileSrc: "myFont.ttf", $svgFileSrc: "myFont.svg", $svgFontID: "#myFont")
+  font-family: $fontFamily
+  src: url($eotFileSrc) format("eot"), url($woffFileSrc) format("woff"), url($ttfFileSrc) format("truetype"), url($svgFileSrc + $svgFontID) format("svg")
+/// Opacity
+/// @param {Double} $opacity [0.5] - Opacity
+/// @require {mixin} css3-prefix
+=opacity($opacity: 0.5)
+  $opacityMultiplied: $opacity * 100
+  filter: alpha(opacity = $opacityMultiplied)
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=" + $opacityMultiplied + ")"
+  +css3-prefix("opacity", $opacity)
+/// Outline Radius
+/// @param {Size} $radius [5px] - Radius
+/// @require {mixin} css3-prefix
+=outline-radius($radius: 5px)
+  +css3-prefix("outline-radius", $radius)
+/// Resize
+/// @param {*} $directoin [both] - Direction
+/// @require {mixin} css3-prefix
+=resize($direction: both)
+  +css3-prefix("resize", $direction)
+/// Rotate
 //
-// IMPORTS
-//
-
-@import "reset";
-@import "variables";
-// Syntax highlighting @import is at the bottom of this file
-
-/**************/
-/* BASE RULES */
-/**************/
-
-html {
-  font-size: 100%;
-}
-
-body {
-	background-image: url("https://s-media-cache-ak0.pinimg.com/originals/e3/da/54/e3da54011fa8803a26e6a31f5d8083a6.gif");
-  font: 18px/1.4 $helvetica;
-	
-  color: $darkGray;
-}
-
-.container {
-  margin: 0 auto;
-  max-width: 740px;
-  padding: 0 10px;
-  width: 100%;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: $helveticaNeue;
-  color: $darkerGray;
-  font-weight: bold;
-
-  line-height: 1.7;
-  margin: 1em 0 15px;
-  padding: 0;
-
-  @include mobile {
-    line-height: 1.4;
-  }
-}
-
-h1 {
-  font-size: 30px;
-  a {
-    color: inherit;
-  }
-}
-
-h2 {
-  font-size: 24px;
-}
-
-h3 {
-  font-size: 20px;
-}
-
-h4 {
-  font-size: 18px;
-  color: $gray;
-}
-
-p {
-  margin: 15px 0;
-}
-
-a {
-  color: $blue;
-  text-decoration: none;
-	cursor: pointer;
-  &:hover, &:active {
-    color: $blue;
-  }
-}
-
-ul, ol {
-  margin: 15px 0;
-  padding-left: 30px;
-}
-
-ul {
-  list-style-type: disc;
-}
-
-ol {
-  list-style-type: decimal;
-}
-
-ol ul, ul ol, ul ul, ol ol {
-  margin: 0;
-}
-
-ul ul, ol ul {
-  list-style-type: circle;
-}
-
-em, i {
-  font-style: italic;
-}
-
-strong, b {
-  font-weight: bold;
-}
-
-img {
-  max-width: 100%;
-}
-
-// Fixes images in popup boxes from Google Translate
-.gmnoprint img {
-  max-width: none;
-}
-
-.date {
-  font-style: italic;
-  color: $gray;
-}
-
-// Specify the color of the selection
-::-moz-selection {
-  color: $black;
-  background: $lightGray;
-}
-::selection {
-  color: $black;
-  background: $lightGray;
-}
-
-// Nicolas Gallagher's micro clearfix hack
-// http://nicolasgallagher.com/micro-clearfix-hack/
-.clearfix:before,
-.clearfix:after {
-    content: " ";
-    display: table;
-}
-
-.clearfix:after {
-    clear: both;
-}
-
-/*********************/
-/* LAYOUT / SECTIONS */
-/*********************/
-
-//
-// .masthead
-//
-
-.wrapper-masthead {
-  margin-bottom: 50px;
-}
-
-.masthead {
-  padding: 20px 0;
-  border-bottom: 1px solid $lightGray;
-
-  @include mobile {
-    text-align: center;
-  }
-}
-
-.site-avatar {
-  float: left;
-  width: 70px;
-  height: 70px;
-  margin-right: 15px;
-
-  @include mobile {
-    float: none;
-    display: block;
-    margin: 0 auto;
-  }
-
-  img {
-    border-radius: 5px;
-  }
-}
-
-.site-info {
-  float: left;
-
-  @include mobile {
-    float: none;
-    display: block;
-    margin: 0 auto;
-  }
-}
-
-.site-name {
-  margin: 0;
-  color: $darkGray;
-  cursor: pointer;
-  font-family: $helveticaNeue;
-  font-weight: 300;
-  font-size: 28px;
-  letter-spacing: 1px;
-}
-
-.site-description {
-  margin: -5px 0 0 0;
-  color: $gray;
-  font-size: 16px;
-
-  @include mobile {
-    margin: 3px 0;
-  }
-}
-
-nav {
-  float: right;
-  margin-top: 23px; // @TODO: Vertically middle align
-  font-family: $helveticaNeue;
-  font-size: 18px;
-
-  @include mobile {
-    float: none;
-    margin-top: 9px;
-    display: block;
-    font-size: 16px;
-  }
-
-  a {
-    margin-left: 20px;
-    color: $darkGray;
-    text-align: right;
-    font-weight: 300;
-    letter-spacing: 1px;
-
-    @include mobile {
-      margin: 0 10px;
-      color: $blue;
-    }
-  }
-}
-
-//
-// .main
-//
-
-.posts > .post {
-  padding-bottom: 2em;
-  border-bottom: 1px solid $lightGray;
-}
-
-.posts > .post:last-child {
-  padding-bottom: 1em;
-  border-bottom: none;
-}
-
-.post {
-  blockquote {
-    margin: 1.8em .8em;
-    border-left: 2px solid $gray;
-    padding: 0.1em 1em;
-    color: $gray;
-    font-size: 22px;
-    font-style: italic;
-  }
-
-  .comments {
-    margin-top: 10px;
-  }
-
-  .read-more {
-    text-transform: uppercase;
-    font-size: 15px;
-  }
-}
-
-.wrapper-footer {
-  margin-top: 50px;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  background-color: $lightGray;
-}
-@import 'node_modules/normalize-css/normalize';
-
-@import 'src/base/universal';
-@import 'src/base/a';
-@import 'src/base/body';
-@import 'src/base/button';
-@import 'src/base/h';
-@import 'src/base/html';
-@import 'src/base/img';
-@import 'src/base/input';
-@import 'src/base/input-check-radio';
-@import 'src/base/label';
-@import 'src/base/list';
-@import 'src/base/p';
-@import 'src/base/quote';
-@import 'src/base/select';
-@import 'src/base/text-tag';
-@import 'src/base/textarea';
-
-@import 'src/helpers/smaller-wider';
-@import 'src/helpers/align';
-@import 'src/helpers/block';
-@import 'src/helpers/center';
-@import 'src/helpers/float';
-@import 'src/helpers/hidden';
-@import 'src/helpers/interaction';
-@import 'src/helpers/list';
-@import 'src/helpers/margin';
-@import 'src/helpers/padding';
-@import 'src/helpers/text';
-
-@import 'src/components/alert';
-
-@import 'src/patterns/grid';
-@import 'src/patterns/layout';
+// / CSS Matrix Rotation Calculator http://www.boogdesign.com/examples/transforms/matrix-calculator.html
+// / @param {Double} $deg [0] - Degree
+// / @param {Double} $m11 [0] - M11
+// / @param {Double} $m12 [0] - M12
+// / @param {Double} $m21 [0] - M21
+// / @param {Double} $m22 [0] - M22
+// / @require {mixin} css3-prefix
+=rotate($deg: 0, $m11: 0, $m12: 0, $m21: 0, $m22: 0)
+  +css3-prefix("transform", rotate($deg + deg))
+  filter: progid:DXImageTransform.Microsoft.Matrix( M11=#{$m11}, M12=#{$m12}, M21=#{$m21}, M22=#{$m22}, sizingMethod='auto expand')
+  zoom: 1
+/// Text Shadow
+/// @param {Size} $x [2px] - X
+/// @param {Size} $y [2px] - Y
+/// @param {Size} $blur [2px] - Blur
+/// @param {Color} $color [rgba(0,0,0,.4)] - Color
+=text-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0, 0, 0, 0.4))
+  text-shadow: $x $y $blur $color
+/// Transform
+/// @param {List} $params - Params
+/// @require {mixin} css3-prefix
+=transform($params)
+  +css3-prefix("transform", $params)
+/// Transform-Origin
+/// @param {List} $params - Params
+/// @require {mixin} css3-prefix
+=transform-origin($params)
+  +css3-prefix("transform-origin", $params)
+// Transform-Style
+/// @param {List} $params - Params
+/// @require {mixin} css3-prefix
+=transform-style($style: preserve-3d)
+  +css3-prefix("transform-style", $style)
+/// Transition
+/// @param {List} $properties - Properties
+/// @require {mixin} css3-prefix
+=transition($properties...)
+  @if length($properties) >= 1
+    +css3-prefix("transition", $properties)
+  @else
+    +css3-prefix("transition", "all 0.2s ease-in-out 0s")
+/// Triple Borders
+/// @param {Color} $colorOne [#3C3C3C] - Color One
+/// @param {Color} $colorTwo [#999999] - Color Two
+/// @param {Color} $colorThree [#000000] - Color Three
+/// @param {Size} $radius [0] - Radius
+/// @require {mixin} border-radius
+/// @require {mixin} css3-prefix
+=triple-borders($colorOne: #3C3C3C, $colorTwo: #999999, $colorThree: #000000, $radius: 0)
+  border: 1px solid $colorOne
+  +border-radius($radius)
+  +css3-prefix("box-shadow", "0 0 0 1px #{$colorTwo}, 0 0 0 2px #{$colorThree}")
+/// Keyframes
+/// @param {*} $animation-name - Animation name
+/// @content [Animation css]
+=keyframes($animation-name)
+  @-webkit-keyframes #{$animation-name}
+    @content
+  @-moz-keyframes #{$animation-name}
+    @content
+  @-ms-keyframes #{$animation-name}
+    @content
+  @-o-keyframes #{$animation-name}
+    @content
+  @keyframes #{$animation-name}
+    @content
+/// Animation
+/// @param {*} $str - name duration timing-function delay iteration-count direction fill-mode play-state ([http://www.w3schools.com/cssref/css3_pr_animation.asp](http://www.w3schools.com/cssref/css3_pr_animation.asp))
+/// @require {mixin} css3-prefix
+=animation($str)
+  +css3-prefix("animation", $str)
