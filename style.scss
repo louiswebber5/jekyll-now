@@ -278,34 +278,3 @@ nav {
   border-bottom: 1px solid #ddd;
   background-color: $lightGray;
 }
-
-<div ng-app="app" ng-controller="MainCtrl" ng-init="textboxes = ['Text1','Text2','Text3']">
-    <div ng-repeat="box in textboxes">
-        {{box}}
-        <copyoftextbox ng-model="models[$index]" name={{box}} index={{$index}}></copyoftextbox>
-    </div>
-</div>
-
-var app = angular.module("app", []);
-app.controller('MainCtrl', function($scope) {
-  $scope.models = ['model1','model2','model3'];
-});
-app.directive("copyoftextbox", function ($compile) {
-    return {
-        restrict: "E",
-        template: "<div ><input type='text' /></div>",
-        replace: true,
-        compile: function compile(tElement, tAttrs) {
-            return function (scope, iElement, iAttrs) {
-                var attributes = $(iElement).prop("attributes");
-                var $input = $(iElement).find("input");
-                $.each(attributes, function (index) { 
-                    if (this.name !== "class") {
-                        $input.attr(this.name, this.value);
-                    }
-                });
-                $compile($input)(scope);
-            };
-        }
-    };
-});
