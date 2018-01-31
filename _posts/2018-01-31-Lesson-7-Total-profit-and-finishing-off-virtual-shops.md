@@ -10,3 +10,7 @@ Wednesday 31st January 2018
 
 This lesson, I didn't do much on my work, most of it was just layout and moving it around, but what I did do was: I made a box which took the total profit, and the expenditure, and took one away from the other, to see how much money I’d actually make. If the amount of money I made was over 1000 pounds, the box with the total profit in it would go green. If I made between 0 and 1000 pounds the box would go yellow, and if I made a negative profit, then the box would be red. Also, I changed the layout so I had my parts of the code in 3 different sections, checkout, money, and items. Finally, I changed my code so that if I put it that there were 30 shirts in stock, and that 12 had sold, the code would work out how many shirts were unsold in this case 18. So all in all, I made a little bit of progress in the lesson, but now my layout is more helpful.
 
+Link to my virtual shop:
+
+[https://docs.google.com/spreadsheets/d/1SHcnnvRa7ULqGE-krTkQ3oZmwSCVHTWlZhW7HAly9ks/edit?usp=sharing](https://docs.google.com/spreadsheets/d/1SHcnnvRa7ULqGE-krTkQ3oZmwSCVHTWlZhW7HAly9ks/edit?usp=sharing)
+
