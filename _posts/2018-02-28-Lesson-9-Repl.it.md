@@ -36,3 +36,5 @@ def draw_shape(sides,length):
 
 So what this does, it draws all the shapes with side number 3 all the way through to 8, like this: 
 
+![image alt text]({{ site.url }}/public/pthibP8MHLXO3dEOfLfiUg_img_0.jpg)
+
